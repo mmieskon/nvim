@@ -38,4 +38,5 @@ map("n", "<esc>", "<esc>:noh<cr>")
 map("", ";", ",")
 map("", ",", ";")
 
-
+-- Go to start of last word in current line
+map("nv", "^", "$?\\a<cr>wb:noh<cr>")
