@@ -4,6 +4,6 @@
 
 ### TODO
 
-* Add code completion and snippets
+* Check dependencies of all plugins and make a better file structure
 
 

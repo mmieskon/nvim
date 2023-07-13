@@ -1,6 +1,7 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 local servers = require("language-servers")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local on_attach = function(client, _)
     -- Disable syntax highlighting with LSP
@@ -18,7 +19,8 @@ end
 
 for _,v in pairs(servers) do
     lspconfig[v].setup({
-        on_attach = on_attach
+        capabilities = capabilities,
+        on_attach = on_attach,
     })
 end
 
@@ -28,6 +30,7 @@ require("lspconfig").lua_ls.setup {
     on_attach = on_attach
 }
 
+-- TODO: Show diagnostics, but don't change the line number positions
 vim.diagnostic.config({signs = false})
 
 

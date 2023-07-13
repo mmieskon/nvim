@@ -58,14 +58,31 @@ return {
     },  ------------------------------------------
 
 
+    {   ---   ------------------------------------
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "L3MON4D3/LuaSnip",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+        },
+        config = function()
+            require("plugins/nvim-cmp")
+        end
+    },  ------------------------------------------
+
+
     {   --- LSP Configurations -------------------
         "neovim/nvim-lspconfig",
-        dependencies = "williamboman/mason-lspconfig.nvim",
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+            "hrsh7th/nvim-cmp",
+        },
         config = function()
             require("plugins/nvim-lspconfig")
         end
     },  ------------------------------------------
-
 }
 
 
