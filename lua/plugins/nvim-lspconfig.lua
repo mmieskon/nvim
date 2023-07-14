@@ -25,8 +25,13 @@ for _,v in pairs(servers) do
 end
 
 require("lspconfig").lua_ls.setup {
-    -- Don't warn when 'vim' is used in configs written in lua
-    settings = { Lua = { diagnostics = { globals = {'vim'} } } },
+    settings = { Lua = {
+        -- Introduce vim API for Lua language server
+        workspace   = {
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false, -- Disable some notification when 'gd'
+        }
+    }},
     on_attach = on_attach
 }
 
