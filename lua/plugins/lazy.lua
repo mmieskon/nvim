@@ -41,7 +41,9 @@ return {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
         config = function()
-            require("mason").setup()
+            require("mason").setup({
+                ui = { border = "rounded" }
+            })
         end
     },  ------------------------------------------
 
@@ -68,7 +70,7 @@ return {
             "hrsh7th/cmp-cmdline",
         },
         config = function()
-            require("plugins/nvim-cmp")
+            require("plugins/cmp")
         end
     },  ------------------------------------------
 
@@ -80,7 +82,7 @@ return {
             "hrsh7th/nvim-cmp",
         },
         config = function()
-            require("plugins/nvim-lspconfig")
+            require("plugins/lspconfig")
         end
     },  ------------------------------------------
 }

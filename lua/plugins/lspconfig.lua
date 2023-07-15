@@ -38,7 +38,7 @@ require("lspconfig").lua_ls.setup {
 -- TODO: Show diagnostics, but don't change the line number positions
 vim.diagnostic.config({signs = false})
 
--- Rounded borders in hover
+--Rounded borders in hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
         border = "rounded",
@@ -47,6 +47,9 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 -- Transparent background in hover
 vim.cmd("highlight! link FloatBorder Normal")
 vim.cmd("highlight! link NormalFloat Normal")
+
+-- Borders in ':LspInfo'
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 
 -- TODO: Go through these keymappings
