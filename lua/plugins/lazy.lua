@@ -85,6 +85,49 @@ return {
             require("plugins/lspconfig")
         end
     },  ------------------------------------------
+
+    {   ------------------------------------------
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        --- type Flash.Config
+        opts = {
+            modes = {
+                char = { enabled = false },
+                search = { enabled = false },
+            },
+        },
+        -- stylua: ignore
+        keys = {
+            {
+                "ö",
+                mode = { "n", "o", "x" },
+                function()
+                    require("flash").jump()
+                end,
+                desc = "Flash"
+            },
+            {
+                "Ö",
+                mode = { "n", "o", "x" },
+                function()
+                    require("flash").treesitter()
+                end,
+                desc = "Flash Treesitter"
+            },
+        },
+    },  ------------------------------------------
+
+    {   ------------------------------------------
+        'nvim-telescope/telescope.nvim', tag = '0.1.3',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            local builtin = require('telescope.builtin')
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+        end
+    },  ------------------------------------------
 }
 
 
