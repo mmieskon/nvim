@@ -29,7 +29,7 @@ return {
             require("nvim-treesitter.configs").setup({
                 -- "comment" for highlighting 'TODO'
                 ensure_installed = {
-                    "comment", "lua", "c", "python",
+                    "comment", "lua", "c", "python", "rust",
                 },
                 highlight = { enable = true },
             })

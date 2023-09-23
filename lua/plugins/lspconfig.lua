@@ -35,6 +35,21 @@ require("lspconfig").lua_ls.setup {
     on_attach = on_attach
 }
 
+require("lspconfig").rust_analyzer.setup {
+    -- Use Clippy
+    settings = {
+        ['rust-analyzer'] = {
+            checkOnSave = {
+                command = "clippy",
+            }
+        }
+    },
+    -- Remember to include these so syntax highlighting can be provided
+    -- by treesitter
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
 -- TODO: Show diagnostics, but don't change the line number positions
 vim.diagnostic.config({signs = false})
 
