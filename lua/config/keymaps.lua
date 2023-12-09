@@ -28,19 +28,11 @@ end
 
 vim.g.mapleader = " "
 map("", "<space>", "<nop>")
-
 map("", "<leader>tn", ":<c-w>tabnew ", {silent = false})
 map("", "<leader><tab>", ":<c-w>tabnext<cr>")
---map("", "<s-tab>", ":<c-w>tabprev<cr>")
-
 map("n", "<esc>", "<esc>:noh<cr>")
-
 map("", ";", ",")
 map("", ",", ";")
+map("n", "<leader><cr>", ":!make<cr>")
 
--- Go to start of last word in current line
-map("nv", "^", "$?\\a<cr>wb:noh<cr>")
 
-map("n", "<leader> ", "i <esc>")
-
-map("", "<leader>lr", ":LspRestart<cr>")
